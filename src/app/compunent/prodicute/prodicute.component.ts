@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Interface } from '../../modul/interface';
 
 @Component({
   selector: 'app-prodicute',
@@ -7,6 +8,32 @@ import { Component } from '@angular/core';
   templateUrl: './prodicute.component.html',
   styleUrl: './prodicute.component.css'
 })
-export class ProdicuteComponent {
+export class ProdicuteComponent implements OnInit {
+  prudect!:Interface[]
+  constructor(){
+
+  }
+  ngOnInit(): void {
+    this.prudect=[
+      {
+        pname:"nbhjghm",
+        pquantity:20,
+        pid:4,
+        psarly:200,
+        pImg:"mjljhuguyf",
+        pcateogryName:"jgjfydtr"
+    },
+    {
+      pname:"nbhjghm",
+      pquantity:20,
+      pid:4,
+      psarly:200,
+      pImg:"mjljhuguyf",
+      pcateogryName:"jgjfydtr"
+  }
+    ]
+
+  }
+
 
 }
