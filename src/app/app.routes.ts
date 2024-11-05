@@ -8,8 +8,8 @@ import { AboutUsComponent } from './compunent/about-us/about-us.component';
 import { ContactUsComponent } from './compunent/contact-us/contact-us.component';
 
 export const routes: Routes = [
-{path:"",redirectTo:"/home",pathMatch:"full"},
-{path:"",component:MainComponent,children:[
+{path:"mohamedazoz.github.io/",redirectTo:"/home",pathMatch:"full"},
+{path:"mohamedazoz.github.io/",component:MainComponent,children:[
   {path:"home",component:HomeComponent,title:'home'},
   {path:"products",component:ProdicuteComponent,title:'products'},
   {path:"About",component:AboutUsComponent,title:'About us'},
