@@ -1,5 +1,5 @@
 export class Class {
-  constructor(public name:string,public branches:string[],public Logo:string){
+  constructor(public Name:string,public branches:string[],public Logo:string){
 
   }
 }

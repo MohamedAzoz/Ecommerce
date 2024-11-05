@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Interface } from '../../modul/interface';
 import { NgClass } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-prodicute',
+  selector: 'app-search',
   standalone: true,
-  imports: [NgClass],
-  templateUrl: './prodicute.component.html',
-  styleUrl: './prodicute.component.css'
+  imports: [FormsModule,NgClass,RouterModule],
+  templateUrl: './search.component.html',
+  styleUrl: './search.component.css'
 })
-export class ProdicuteComponent implements OnInit {
+export class SearchComponent implements OnInit {
   prudect!:Interface[];
-  show:boolean=true;
-  constructor(){
-  }
   ngOnInit(): void {
     this.prudect=[
       {
@@ -77,11 +76,18 @@ export class ProdicuteComponent implements OnInit {
 }
 
     ]
-
   }
 
-   toggel(){
-     this.show=!this.show;
+  prudectfilt:Interface[]=[];
+   set doserche(v:string){
+    this.prudectfilt=this.prudectfilttar(v);
    }
 
+
+   prudectfilttar(pr:string):Interface[]{
+     pr=pr.toLowerCase();
+    return  this.prudect.filter((onepr:Interface)=>
+      onepr.pname.toLowerCase().includes(pr)
+    )
+   }
 }

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Interface } from '../../modul/interface';
 import { ProdicuteComponent } from "../prodicute/prodicute.component";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProdicuteComponent],
+  imports: [ProdicuteComponent ,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

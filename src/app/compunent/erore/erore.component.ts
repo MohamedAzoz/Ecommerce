@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-erore',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './erore.component.html',
+  styleUrl: './erore.component.css'
 })
-export class NavbarComponent {
+export class EroreComponent {
 
 }
