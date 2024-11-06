@@ -1,29 +1,36 @@
-
-
 <div class="container-fluid">
-  <div class="row d-flex justify-content-center my-3">
-    <button class="col-2 py-1 btn rounded-5 fs-4 fw-bold border border-5" [ngClass]="{'text-danger btn-outline-light border-danger':show==true,'text-dark btn-outline-info':show==false}" (click)="toggel()">
-      {{show?"Hiden":"Show"}}
-    </button>
-  </div>
   <div class="row my-1">
-  @for (i of prudect; track prudect) {
+    @for (i of prudectfilt; track prudect) {
     <div class="col-3 my-2">
-       <div class="card border border-2 shadow-lg" style="width: 18rem;">
-    @if (show) {
-      <img [src]="i.pImg" class="card-img-top" alt="...">
-    }
-      <div class="card-body">
-        <h5 class="card-title">{{i.pname}}</h5>
-        <p class="card-text">Quantity : {{i.pquantity}}</p>
-        <p class="card-text">Price : {{i.psarly}} EG</p>
-        <button class="btn btn-primary px-3" [disabled]="i.pquantity==0"><i class="fa-solid fa-cart-shopping pe-2"></i> buy</button>
+      <div class="card border border-2 shadow-lg" style="width: 18rem">
+        @if (show) {
+        <img [src]="i.pImg" class="card-img-top" alt="..." />
+        }
+        <div class="card-body">
+          <h5 class="card-title">{{ i.pname }}</h5>
+          <p class="card-text">Quantity : {{ i.pquantity }}</p>
+          <p class="card-text">Price : {{ i.psarly | currency : "EGP " }}</p>
+          <button
+            class="btn btn-primary px-3 me-1"
+            [disabled]="i.pquantity == 0"
+          >
+            <i class="fa-solid fa-cart-shopping pe-2"></i> buy
+          </button>
+          <button
+            class="btn border border-3"
+            [ngClass]="{
+              'text-danger btn-outline-light border-danger': (i.show) == true,
+              'text-dark btn-outline-info': (i.show) == false
+            }"
+            (click)="toggel(i.pid)"
+          >
+            {{ (i.show) ? "Hiden" : "Show" }} Img
+          </button>
+        </div>
       </div>
     </div>
+    } @empty {
+    <h1 class="text-center text-danger">No data</h1>
+    }
   </div>
-  }
-  @empty {
-    <h1 class="text-center text-danger"> No data </h1>
-  }
-</div>
 </div>

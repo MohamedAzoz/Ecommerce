@@ -5,4 +5,5 @@ export interface Interface {
   psarly:number;
   pImg:string;
   pcateogryName:string;
+  show:boolean;
 }

@@ -17,5 +17,4 @@ export const routes: Routes = [
   {path:"search",component:SearchComponent,title:'search'}
 ]},
   {path:"**",component:EroreComponent,title:'error'}
-
 ];
