@@ -1,36 +1,57 @@
-<div class="container-fluid">
-  <div class="row my-1">
-    @for (i of prudectfilt; track prudect) {
-    <div class="col-3 my-2">
-      <div class="card border border-2 shadow-lg" style="width: 18rem">
-        @if (show) {
-        <img [src]="i.pImg" class="card-img-top" alt="..." />
-        }
-        <div class="card-body">
-          <h5 class="card-title">{{ i.pname }}</h5>
-          <p class="card-text">Quantity : {{ i.pquantity }}</p>
-          <p class="card-text">Price : {{ i.psarly | currency : "EGP " }}</p>
-          <button
-            class="btn btn-primary px-3 me-1"
-            [disabled]="i.pquantity == 0"
-          >
-            <i class="fa-solid fa-cart-shopping pe-2"></i> buy
-          </button>
-          <button
-            class="btn border border-3"
-            [ngClass]="{
-              'text-danger btn-outline-light border-danger': (i.show) == true,
-              'text-dark btn-outline-info': (i.show) == false
-            }"
-            (click)="toggel(i.pid)"
-          >
-            {{ (i.show) ? "Hiden" : "Show" }} Img
-          </button>
+<div class="container-fluid" style="background-color: #C4D4F2;">
+  <div class="row d-flex"  >
+  <div class="col-1 d-flex color flex-column justify-content-evenly shadow-lg border-end border-dark border-2">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" (click)="Apple(serch.value)" value="Apple" id="Apple" #serch>
+      <label class="form-check-label" for="Apple" value="Apple" >
+        Apple
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" (click)="Honor(serch1.value)" value="Honor" id="Honor" #serch1>
+      <label class="form-check-label" for="Honor" value="Honor">
+        Honor
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" (click)="Samsung(serch2.value)" value="Samsung" id="Samsung" #serch2>
+      <label class="form-check-label" for="Samsung" value="Samsung">
+        Samsung
+      </label>
+    </div>
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" (click)="HUAWEI(serch3.value)" value="HUAWEI" id="HUAWEI" #serch3>
+      <label class="form-check-label" for="HUAWEI" value="HUAWEI">
+        HUAWEI
+      </label>
+    </div>
+  </div>
+  <div class="col-11 my-4 d-flex justify-content-evenly flex-wrap">
+    @for (i of prudectfilt; track prudectfilt) {
+      <div class="col-3 my-4">
+        <div class="card border border-2" appDirective="grey">
+        <div class="row d-flex flex-column align-items-center"  (mousemove)="moseover(i)" (mouseout)="moseout(i)">
+          <img [src]="i.pImg" class="card-img-top z-1 position-relative" [ngClass]="{'op':i.show==true}" alt="..." />
+          <span class="w-100 rounded-2" [ngClass]="{'viwe':i.show==false,'hov':i.show==true}">
+            <i class="fa-regular fa-heart ico" [ngClass]="{'clo2':show2==true,'clo1':show2==false}" (click)="addlove(i)"></i>
+            <i class="fa-solid fa-cart-shopping ico" (click)="addtocart(i)" [ngClass]="{'clo2':show==true,'clo1':show==false}"></i>
+            <i class="fa-solid fa-circle-info ico" [routerLink]="['/ProductDetails',i.id]"></i>
+          </span>
+        </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ i.pname }}</h5>
+            <p class="card-text">Price :
+              <span class="bg-dark-subtle me-1">
+                {{ i.psarly |currency : "EGP"}}
+              </span>
+              </p>
+          </div>
         </div>
       </div>
-    </div>
-    } @empty {
+      }
+    @empty {
     <h1 class="text-center text-danger">No data</h1>
     }
   </div>
+</div>
 </div>

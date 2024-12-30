@@ -1,0 +1,107 @@
+<div class="container my-5 d-flex justify-content-center">
+  <form class="row w-50 gy-3 gx-0 py-3 shadow-lg color rounded-2" (ngSubmit)="adduser()" #login="ngForm">
+    <h3 class="text-center fw-bolder my-1">Login</h3>
+    <!-- <div class="col-10 mx-auto">
+      <label for="inputEmail4" class="form-label">Name</label>
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail4"
+        required
+        name="name"
+        minlength="3"
+        [(ngModel)]="user.name"
+        #nameinput="ngModel"
+        [ngClass]="{'is-invalid': (nameinput.dirty || nameinput.touched)&& nameinput.invalid,
+          'is-valid':nameinput.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (nameinput.errors?.['required'] ) {
+          <span>name is required</span>
+        }
+        @else if (nameinput.errors?.['minlength'] ) {
+          <span>name most be at least 3 charcters</span>
+        }
+      </div>
+    </div> -->
+    <div class="col-10 mx-auto">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail4"
+        required
+        name="email"
+        [(ngModel)]="user.email"
+        #emailinput="ngModel"
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+        [ngClass]="{'is-invalid': (emailinput.dirty || emailinput.touched)&& emailinput.invalid,
+          'is-valid':emailinput.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (emailinput.errors?.['required'] ) {
+          <span>email is required</span>
+        }
+        @else if (emailinput.errors?.['pattern'] ) {
+          <span>email most be contain charcters</span>
+        }
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="inputPassword4"
+        required
+        name="password"
+        [(ngModel)]="user.password"
+        #passwordinput="ngModel"
+        minlength="8"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(*[@|.])"
+        [ngClass]="{'is-invalid': (passwordinput.dirty || passwordinput.touched)&& passwordinput.invalid,
+          'is-valid':passwordinput.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (passwordinput.errors?.['required'] ) {
+          <span>password is required</span>
+        } @else if (passwordinput.errors?.['minlength'] ) {
+          <span>password most be at least 8 charcters</span>
+        }
+        @else if (passwordinput.errors?.['pattern'] ) {
+          <span>password most be at least one small and one captail charcters and numbers</span>
+        }
+      </div>
+    </div>
+    <!-- <div class="col-10 mx-auto">
+      <label for="inputAddress" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        placeholder="1234 Main St"
+        required
+        name="address"
+        [(ngModel)]="user.address"
+        minlength="4"
+        #addressinput="ngModel"
+                [ngClass]="{'is-invalid': (addressinput.dirty || addressinput.touched)&& addressinput.invalid,
+          'is-valid':addressinput.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (nameinput.errors?.['required'] ) {
+          <span>address is required</span>
+        } @else if (addressinput.errors?.['minlength'] ) {
+          <span>address most be at least 4 charcters</span>
+        }
+      </div>
+    </div> -->
+    <div class="col-10 mx-auto">
+      <button type="submit" class="btn btn-dark" (click)="loginx(emailinput.value)" [disabled]="login.invalid">login</button>
+    </div>
+  </form>
+</div>

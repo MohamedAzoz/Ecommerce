@@ -3,17 +3,20 @@
     <h1 class="text-center my-1 fst-italic">{{course.Name}}</h1>
     <div class="row d-flex justify-content-center text-light my-2">
       <ul class="col-4">
-          <li *ngFor="let i of course.branches; track course">
-          <span class="text-danger text-capitalize">
-            {{i}}
-          </span> branche
-        </li>
+        @for (i of course.branches; track $index) {
+
+          <li>
+            <span class="text-danger text-capitalize">
+              {{i}}
+            </span> branche
+          </li>
+        }
       </ul>
       <img class="col-1 rounded-circle" [src]="course.Logo" alt="">
     </div>
   </div>
 <hr class="text-light mx-auto w-75">
-  <div class="row d-flex justify-content-center align-content-center my-2">
+  <!-- <div class="row d-flex justify-content-center align-content-center my-2">
     <a href="#" class="col d-flex justify-content-center text-decoration-none">
       <i class="fa-brands fa-facebook text-primary fs-3"></i>
     </a>
@@ -27,6 +30,8 @@
       <i class="fa-brands fa-linkedin text-primary fs-3"></i>
     </a>
   </div>
-<hr class="text-light mx-auto w-75">
+<hr class="text-light mx-auto w-75"> -->
+<!-- <h3 class="text-center text-light">{{date|date:'HH:mm:ss'}}</h3>
+<hr class="text-light mx-auto w-75"> -->
   <h4 class="text-center opacity-50 text-light my-3">copywrite &copy; 2024 </h4>
   </div>

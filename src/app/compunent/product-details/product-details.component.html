@@ -1,0 +1,51 @@
+<div class="container-fluid">
+<div class="row mb-3">
+    <div class="col-4 my-2">
+      <img [src]="prod.pImg" class="img-fluid" alt="" />
+    </div>
+    <div
+      class="col-8 d-grid justify-content-around align-content-around fw-bold fs-5"
+    >
+      <p class="text-center">{{ prod.pname }}</p>
+      <p class="text-center">{{ prod.pcateogryName }}</p>
+      <p class="text-center">Price : {{ prod.psarly }}</p>
+    </div>
+<div class="row d-flex justify-content-center">
+  <button
+          class="col-2 btn btn-dark color px-3 me-1"
+          (click)="addtocart(prod)"
+        >
+          <i class="fa-solid fa-cart-shopping pe-2"></i> buy
+        </button>
+</div>
+  </div>
+  <div class="row my-5 d-grid justify-content-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link"  aria-label="Previous"
+           (click)="prevfun()"
+           [disabled]="id==all_ids[0]"
+        >
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li class="page-item">
+        <button class="page-link"  aria-label="Next"
+        (click)="nextfun()"
+        [disabled]="id==all_ids[all_ids.length-1]"
+        >
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+
+</div>
+  <div class="row my-5 d-flex justify-content-end">
+    <button
+      class="btn btn-secondary col-2 me-5 py-2 fw-bold fs-5"
+      (click)="goback()"
+    >
+      Go back
+    </button>
+  </div>
+</div>

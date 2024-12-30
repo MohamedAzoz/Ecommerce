@@ -1,4 +1,11 @@
+.maincolor{
+  background-color: #497CBF !important;
+}
 .active{
-  background-color: gold !important;
+  background-color: white !important;
   font-weight: bold ;
+  border-radius: 50px;
+}
+.font{
+  font-size: 1.5vw;
 }

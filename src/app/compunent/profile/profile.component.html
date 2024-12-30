@@ -1,0 +1,64 @@
+@if (root) {
+  <div class="container-fluid ">
+    <div class="row d-flex justify-content-center mt-2">
+    <div class="col-5 d-flex flex-column align-items-center">
+      <i class="fa-solid fa-user fs-2"></i>
+      <h1>{{root.name}}</h1>
+      <h1>{{root.email}}</h1>
+    </div>
+    </div>
+    <div class="row mt-5 d-flex flex-wrap align-items-center justify-content-center">
+      @for (i of prudectfilt; track prudectfilt) {
+          <div class="row my-2 d-flex w-75 " appDirective="grey" >
+            <div class="col-3 d-flex">
+               <img [src]="i.pImg" class="img-fluid w-25" alt="..." />
+            </div>
+            <div class="col-9 d-flex justify-content-between align-items-center">
+              <div class="col-4 align-items-center">
+              <h5 class="">{{ i.pname }}</h5>
+              <p class="">Price :
+                <span class="bg-dark-subtle gh me-1">
+                  {{ i.psarly|currency : "EGP"}}
+                </span>
+                </p>
+                </div>
+              <button
+                class="btn btn-primary"
+                (click)="addtocart(i)"
+              >
+                <i class="fa-solid fa-cart-shopping"></i> buy
+              </button>
+              <button (click)="remove(i.pname)"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+        }
+    </div>
+    <div class="row my-5 d-flex flex-wrap align-items-center justify-content-center">
+      @for (i of prudect; track prudect) {
+          <div class="row my-2 d-flex w-75 " appDirective="grey" >
+            <div class="col-3 d-flex">
+               <img [src]="i.pImg" class="img-fluid w-25" alt="..." />
+            </div>
+            <div class="col-9 d-flex justify-content-between align-items-center">
+              <div class="col-6 d-flex justify-content-evenly">
+              <h5 class="ms-3">{{ i.pname }}</h5>
+              <p class="me-3">Price :
+                <span class="bg-dark-subtle gh me-1">
+                      {{ i.psarly|currency : "EGP"}}
+                </span>
+                </p>
+                </div>
+                <div class="col-6 d-flex justify-content-center ps-2">
+                    <p class="text-bg-dark">Up yet 1 January</p>
+                </div>
+            </div>
+          </div>
+        }
+    </div>
+
+  </div>
+
+}@else {
+
+  <h1>error in data load</h1>
+}

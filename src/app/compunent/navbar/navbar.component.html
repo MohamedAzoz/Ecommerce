@@ -1,28 +1,109 @@
-<nav class="navbar navbar-expand-lg bg-dark-subtle">
+<nav class="navbar navbar-expand maincolor">
   <div class="container-fluid">
-    <a class="navbar-brand text-bg-light px-2 rounded-3" routerLink="/home">
-      <i style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">E-commerce</i>
+    <a class="navbar-brand text-bg-light px-2 rounded-3 font">
+      <i
+        style="
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        "
+        >E-commerce</i
+      >
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav col-11 ms-auto fw-bold fs-5">
-        <li class="nav-item col text-center">
-          <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item col text-center">
-          <a class="nav-link" routerLink="/products" routerLinkActive="active">products</a>
-        </li>
-        <li class="nav-item col text-center">
-          <a class="nav-link" routerLink="/About" routerLinkActive="active">About us</a>
-        </li>
-        <li class="nav-item col text-center">
-          <a class="nav-link" routerLink="/Contact" routerLinkActive="active">Contact us</a>
-        </li>
-        <li class="nav-item col text-center">
-          <a class="nav-link" routerLink="/search" routerLinkActive="active"><i class="fa-solid fa-magnifying-glass"></i></a>
-        </li>
+    <div class="navbar-collapse" id="navbarNav">
+      <ul
+        class="navbar-nav col-11 ms-auto fw-bold fs-5 d-flex justify-content-between"
+      >
+        <div class="col-6 d-flex">
+          <li
+            class="nav-item col text-center"
+            [hidden]="!islook"
+            [ngClass]="{ invisible: !islook }"
+          >
+
+             <a
+               class="nav-link btn font"
+               routerLink="/profile"
+               routerLinkActive="active"
+               >
+               @if (count2!=0) {
+                <sup class="bg-light rounded-5 p-1">{{count2}}</sup>
+              }
+               <i class="fa-solid fa-user"></i></a>
+
+          </li>
+          <li class="nav-item col text-center">
+            <a
+              class="nav-link font"
+              aria-current="page"
+              routerLink="/home"
+              routerLinkActive="active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item col text-center">
+            <a
+              class="nav-link font"
+              routerLink="/products"
+              routerLinkActive="active"
+              >products</a
+            >
+          </li>
+        </div>
+        <div class="col-3 d-flex">
+          <li
+            class="nav-item col text-center"
+            [hidden]="islook"
+            [ngClass]="{ invisible: islook }"
+          >
+            <a
+              class="nav-link font"
+              routerLink="/signup"
+              routerLinkActive="active"
+              >Sign up</a
+            >
+          </li>
+          <li
+            class="nav-item col text-center"
+            [hidden]="islook"
+            [ngClass]="{ invisible: islook }"
+          >
+            <a
+              class="nav-link font"
+              routerLink="/login"
+              routerLinkActive="active"
+              title="login"
+              ><i class="fa-solid fa-right-to-bracket"></i></a
+            >
+          </li>
+          <li class="nav-item col text-center">
+            <a
+            class="nav-link btn font"
+            routerLink="/cart"
+            routerLinkActive="active"
+            [hidden]="!islook"
+             [ngClass]="{'invisible': !islook}"
+            >
+            @if (count!=0) {
+              <sup class="bg-light rounded-5 p-1">{{count}}</sup>
+            }
+            <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+          </li>
+          <li
+            class="nav-item col text-center"
+            [hidden]="!islook"
+            [ngClass]="{ invisible: !islook }"
+          >
+            <a
+              class="nav-link btn font"
+              routerLink="/signup"
+              routerLinkActive="active"
+              (click)="logout()"
+              title="logout"
+              [hidden]="!islook"
+              ><i class="fa-solid fa-right-from-bracket"></i></a
+            >
+          </li>
+        </div>
       </ul>
     </div>
   </div>

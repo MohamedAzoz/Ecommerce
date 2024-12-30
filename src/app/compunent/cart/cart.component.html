@@ -1,0 +1,58 @@
+<div class="container-fluid ">
+  <div class="row d-flex justify-content-center" [ngClass]="{'d-none':cartItems.length==0}">
+    <button class="btn btn-dark my-2 w-25" [hidden]="cartItems.length==0"(click)="clearCart()">clear Cart</button>
+  </div>
+  <div class="row d-flex flex-wrap align-items-center justify-content-center">
+
+
+    @for (i of cartItems; track cartItems) {
+        <div class="row my-4 d-flex w-75 " appDirective="grey" >
+          <div class="col-3 d-flex">
+             <img [src]="i.pImg" class="img-fluid w-auto" alt="..." />
+          </div>
+          <div class="col-9 d-flex justify-content-between align-items-center">
+            <div class="col-4 align-items-center">
+            <h5 class="">{{ i.pname }}</h5>
+            <!-- <p class="">Quantity : {{ i.pquantity }}</p> -->
+            <p class="">Price :
+              <span class="bg-dark-subtle gh me-1">
+                {{ i.psarly * i.pquantity|currency : "EGP"}}
+              </span>
+               <!-- {{ i.psarly | directive |currency : "EGP " }} -->
+              </p>
+              </div>
+              <!-- <div class="col-3 align-items-center">
+                @switch (i.pquantity) {
+                 @case (0) {
+                   <p class="text-center text-bg-danger py-1">No prudicute</p>
+                 }
+                 @case (1) {
+                   <p class="text-center text-bg-warning py-1">last one prudicute</p>
+                 }
+                 @default {
+                   <p class="text-center text-bg-light py-1">prudicute available</p>
+                 }
+                }
+              </div> -->
+              <div class="col-3 d-flex py-3">
+                <p class="col text-bg-dark  py-3 d-flex justify-content-center pointer" (click)="removeFromCart(i)">-</p>
+                <p class="bg-light col border  py-3 d-flex justify-content-center">{{i.pquantity}}</p>
+                <p  class="col text-bg-dark  py-3 d-flex justify-content-center pointer" (click)="addtocart(i)">+</p>
+              </div>
+
+            <button
+              class="btn btn-primary"
+              (click)="addcard(i)"
+            >
+              <i class="fa-solid fa-cart-shopping"></i> buy
+            </button>
+            <button (click)="remove(i.pname)"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      }
+      @empty {
+      <h1 class="text-center text-danger">No data</h1>
+      }
+  </div>
+
+</div>

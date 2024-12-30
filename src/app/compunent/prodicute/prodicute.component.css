@@ -1,0 +1,45 @@
+.color{
+  background-color: #6c8eb9;
+}
+.cursor{
+  cursor: pointer;
+}
+.viwe{
+  display: none;
+}
+.hov{
+    display: flex;
+    justify-content:space-around;
+    z-index: 3;
+    position:absolute;
+    align-items: center;
+    background-image:linear-gradient(#222,#333);
+    opacity: .7;
+    height: 80px;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+
+}
+.ico{
+  font-size: 2vw;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-shadow: 0 0 3px #FF0000;
+  color: white;
+  cursor: pointer;
+  &:hover{
+    text-shadow: 3px 3px 4px red, 3px 3px 4px black;
+    color: gold;
+  }
+}
+.clo1{
+  color: white;
+}
+.clo2{
+  color: #FF0000;
+}
+.op{
+  overflow: scroll;
+  opacity: 0.4;
+}
+

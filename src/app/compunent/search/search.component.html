@@ -1,36 +1,35 @@
 
-<div class="container-fluid">
-<div class="row mt-5 d-flex justify-content-center">
-
-  <input type="text" name="search" placeholder="search" class="form-control mt-5 w-50 my-1 border border-3 " [(ngModel)]="doserche">
-
-  <!-- <div class="row my-1 d-flex align-items-center flex-column mb-5">
-    <div class="col-6 bg-body z-3 shadow-lg position-fixed py-1">
-
-      @for (i of prudectfilt; track prudect) {
-        <a routerLink="/products" class="w-50 d-block text-decoration-none text-dark">
-          {{i.pname}}
-      </a>
-    }
-    </div>
-</div>
+<div class="container-fluid" style="background-color: #C4D4F2;">
+<div class="row d-flex justify-content-center">
+  <input type="text" name="search" placeholder="search" class="form-control w-50 my-5 border border-3 " [(ngModel)]="doserche">
 </div>
 
-        <div class="row my-2">
-        @for (i of prudectfilt; track prudect) {
-          <div class="col-3 my-2">
-             <div class="card border border-2 shadow-lg" style="width: 18rem;">
-            <img [src]="i.pImg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{i.pname}}</h5>
-              <p class="card-text">Quantity : {{i.pquantity}}</p>
-              <p class="card-text">Price : {{i.psarly}} EG</p>
-              <button class="btn btn-primary px-3" [disabled]="i.pquantity==0"><i class="fa-solid fa-cart-shopping pe-2"></i> buy</button>
-            </div>
-          </div>
-        </div>
-        }
-  </div> -->
+<app-mainproduct [doserche]="doserche"
+(eventonProdict)="add($event)"></app-mainproduct>
+
+<!-- <div class="container my-2">
+  <table class="table table-bordered table-striped-columns table-primary">
+    <thead>
+      <tr>
+    <td class="text-center">name</td>
+    <td class="text-center">Price</td>
+    <td class="text-center">Totial Price</td>
+    <td class="text-center" colspan="2">Quantity</td>
+  </tr>
+  </thead>
+  <tbody>
+  @for (el of prodict; track prodict) {
+  <tr>
+    <td class="text-center">{{el.pname}}</td>
+    <td class="text-center">{{el.psarly}}</td>
+    <td class="text-center">{{el.psarly*el.pquantity}}</td>
+    <td class="text-center">{{el.pquantity}}</td>
+    <td class="text-center">
+      <button (click)="remove(el)"><i class="fa-solid fa-trash"></i></button>
+    </td>
+  </tr>
+}
+</tbody>
+</table>
+</div> -->
 </div>
-</div>
-<app-prodicute [doserche]="doserche"></app-prodicute>

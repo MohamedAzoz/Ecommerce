@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Class } from '../../modul/class';
+import { Class } from '../../models/class';
 import { CommonModule, NgFor } from '@angular/common';
 
 @Component({
@@ -11,8 +11,8 @@ import { CommonModule, NgFor } from '@angular/common';
 })
 export class FooterComponent {
   course:Class;
+  date:Date=new Date();
   constructor(){
     this.course=new Class("Ecommerce",["sohag","cairo","Alexandria"],"download.png")
   }
-
 }

@@ -1,1 +1,62 @@
-<p>about-us works!</p>
+<div class="container my-5 d-flex justify-content-center">
+  <form class="row w-50 gy-3 gx-0 py-3 shadow-lg color rounded-2" (ngSubmit)="adduser()" #login="ngForm">
+    <h3 class="text-center fw-bolder my-1">Add Credit Card</h3>
+    <div class="col-10 mx-auto">
+      <label for="inputEmail4" class="form-label">Card Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputEmail4"
+        required
+        name="Card"
+        [(ngModel)]="user.cardnumber"
+        #Card="ngModel"
+        minlength="15"
+        maxlength="16"
+        pattern="*[0-9]"
+        [ngClass]="{'is-invalid': (Card.dirty || Card.touched)&& Card.invalid,
+          'is-valid':Card.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (Card.errors?.['required'] ) {
+          <span>card number is required</span>
+        }
+        @else if (Card.errors?.['maxlength'] ) {
+          <span>card number most be 16 number</span>
+        }
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <label for="inputPassword4" class="form-label">CVV</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputPassword4"
+        required
+        name="CVV"
+        [(ngModel)]="user.cvv"
+        #CVV="ngModel"
+        maxlength="4"
+        minlength="3"
+        pattern="*[0-9]"
+        [ngClass]="{'is-invalid': (CVV.dirty || CVV.touched)&& CVV.invalid,
+          'is-valid':CVV.valid
+        }"
+      />
+      <div class="invalid-feedback">
+        @if (CVV.errors?.['required'] ) {
+          <span>CVV is required</span>
+        } @else if (CVV.errors?.['minlength'] ) {
+          <span>CVV most be at least 3 number</span>
+        }
+        @else if (CVV.errors?.['maxlength'] ) {
+          <span>CVV most be at max number is 4</span>
+        }
+      </div>
+    </div>
+    <div class="col-10 mx-auto">
+      <button type="submit" class="btn btn-dark" (click)="loginx()" [disabled]="login.invalid">login</button>
+    </div>
+  </form>
+</div>

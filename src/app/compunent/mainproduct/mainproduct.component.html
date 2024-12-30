@@ -1,0 +1,27 @@
+<div class="row d-flex flex-wrap justify-content-evenly">
+  @for (i of prudectfilt; track prudectfilt) {
+    <div class="col-3 my-4">
+      <div class="card border border-2" appDirective="grey">
+      <div class="row d-flex flex-column align-items-center"  (mousemove)="moseover(i)" (mouseout)="moseout(i)">
+        <img [src]="i.pImg" class="card-img-top z-1 position-relative" [ngClass]="{'op':i.show==true}" alt="..." />
+        <span class="w-100 rounded-2" [ngClass]="{'viwe':i.show==false,'hov':i.show==true}">
+          <i class="fa-regular fa-heart ico" [ngClass]="{'clo2':show2==true,'clo1':show2==false}" (click)="addlove(i)"></i>
+          <i class="fa-solid fa-cart-shopping ico" (click)="addtocart(i)" [ngClass]="{'clo2':show==true,'clo1':show==false}"></i>
+          <i class="fa-solid fa-circle-info ico" [routerLink]="['/ProductDetails',i.id]"></i>
+        </span>
+      </div>
+        <div class="card-body  mx-auto">
+          <h5 class="card-title">{{ i.pname }}</h5>
+          <p class="card-text">Price :
+            <span class="bg-dark-subtle me-1">
+              {{ i.psarly |currency }}
+            </span>
+            </p>
+        </div>
+      </div>
+    </div>
+    }
+    @empty {
+    <h1 class="text-center text-danger">No data</h1>
+    }
+</div>
