@@ -195,6 +195,13 @@
       "email": "ali@gmial.com",
       "password": "5555555555",
       "address": "sohag"
+    },
+    {
+      "id": "c95a",
+      "name": "mohamed azoz",
+      "email": "m.azoz200445@gmail.com",
+      "password": "4444444444",
+      "address": "sohag"
     }
   ]
 }
